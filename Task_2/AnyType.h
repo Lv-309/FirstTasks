@@ -97,20 +97,4 @@ namespace ISXAnyType
 		TypeIndex	m_type_index = TypeIndex::UNIDENTIFIED;
 		TypeUnion	m_value = TypeUnion{};
 	};
-
-
-	//template<typename T>
-	//TestClass::TestClass(T some_value)
-	//{
-	//	if (typeid(T) == typeid(bool))
-	//		b = some_value;
-	//	else if (typeid(T) == typeid(char))
-	//		c = some_value;
-	//	else if (typeid(T) == typeid(int))
-	//		i = some_value;
-	//	else if (typeid(T) == typeid(double))
-	//		d = some_value;
-	//	else
-	//		throw(exception("Unknown type"));
-	//}
 }
