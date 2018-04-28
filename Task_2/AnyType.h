@@ -12,7 +12,7 @@ namespace ISXAnyType
 	{
 		bool	bool_variable;
 		char	char_variable;
-		int		integer_variable;
+		int	integer_variable;
 		double	double_variable;
 	};
 
@@ -26,10 +26,10 @@ namespace ISXAnyType
 	public:
 		AnyType() {}
 
-		AnyType(bool b_some_value)	{ m_value.bool_variable = b_some_value; m_type_index = TypeIndex::BOOL; }
-		AnyType(char ch_some_value)	{ m_value.char_variable = ch_some_value; m_type_index = TypeIndex::CHAR; }
-		AnyType(int i_some_value)		{ m_value.integer_variable = i_some_value; m_type_index = TypeIndex::INTEGER; }
-		AnyType(double db_some_value) { m_value.double_variable = db_some_value; m_type_index = TypeIndex::DOUBLE; }
+		AnyType(const bool b_some_value)	{ m_value.bool_variable = b_some_value; m_type_index = TypeIndex::BOOL; }
+		AnyType(const char ch_some_value)	{ m_value.char_variable = ch_some_value; m_type_index = TypeIndex::CHAR; }
+		AnyType(const int i_some_value)		{ m_value.integer_variable = i_some_value; m_type_index = TypeIndex::INTEGER; }
+		AnyType(const double db_some_value) 	{ m_value.double_variable = db_some_value; m_type_index = TypeIndex::DOUBLE; }
 
 		AnyType(const AnyType& other_object) { m_value = other_object.m_value; m_type_index = other_object.m_type_index; }
 
@@ -49,7 +49,7 @@ namespace ISXAnyType
 			*this = temp;
 		}
 
-		string AnyType::GetType()
+		string AnyType::GetType() const
 		{
 			switch (m_type_index)
 			{
