@@ -2,24 +2,28 @@
 
 namespace ISXVariantType
 {
-	enum VariantBasicTypes
+// Maybe better create another namespace especial for enum
+enum VariantBasicTypes
+{
+	BasicTypeUndefined, BasicTypeBool, BasicTypeChar, BasicTypeInt, BasicTypeFloat
+};
+// Struct wrapper for union
+struct VariantType
+{
+	// Ctors for casting
+	VariantType();
+	VariantType(const VariantType&		another);
+	VariantType(const VariantBasicTypes&	enum_obj);
+	// Global(for struct) anonymous union
+	union 
 	{
-		BasicTypeUndefined, BasicTypeBool, BasicTypeChar, BasicTypeInt, BasicTypeFloat
+		int	int_value;
+		char	char_value;
+		bool	bool_value;
+		float	float_value;
 	};
-
-	struct VariantType
-	{
-		VariantType();
-		VariantType(const VariantType&			another);
-		VariantType(const VariantBasicTypes&	enum_obj);
-
-		union 
-		{
-			int		int_value;
-			char	char_value;
-			bool	bool_value;
-			float	float_value;
-		};
-		VariantBasicTypes stored_type;
-	};
+	// Variables
+	VariantBasicTypes stored_type;
+};
+	
 }
