@@ -1,7 +1,7 @@
 #include "AnyType.h"
 /*
- *  All Ctor's delegating type control to our VariantType
- *  struct's Ctor's.
+ *  All Ctors delegating type control to our VariantType
+ *  struct's Ctors.
  */
 
 ISXAnyType::AnyType::AnyType(const int& i_value) 
