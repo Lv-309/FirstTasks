@@ -1,4 +1,8 @@
 #include "AnyType.h"
+/*
+ *  All Ctor's delegating type control to our VariantType
+ *  struct's Ctor's.
+ */
 
 ISXAnyType::AnyType::AnyType(const int& i_value) 
 		: m_variant(INT)
@@ -29,9 +33,7 @@ ISXAnyType::AnyType::AnyType(const AnyType& another)
 { }
 
 ISXAnyType::AnyType::~AnyType()
-{
-
-}
+{ }
 
 void ISXAnyType::AnyType::Destroy()
 {
@@ -43,12 +45,12 @@ ISXAnyType::AnyType::string ISXAnyType::AnyType::GetType() const
 {
 	switch (m_variant.stored_type)
 	{
-	case UNDEF:		return "Undefined";
-	case BOOL :		return "Bool";
-	case CHAR :		return "Char";
-	case INT  :		return "Int";
-	case FLOAT:		return "Float";
-	default   :		return "Error";
+	case UNDEF:	return "Undefined";
+	case BOOL :	return "Bool";
+	case CHAR :	return "Char";
+	case INT  :	return "Int";
+	case FLOAT:	return "Float";
+	default   :	return "Error";
 	}
 }
 
@@ -84,15 +86,15 @@ ISXAnyType::AnyType& ISXAnyType::AnyType::operator=(const AnyType& right)
 {
 	if (this != &right)
 	{
-		m_variant = right.m_variant;
-		m_variant.stored_type = right.m_variant.stored_type;
+		m_variant 		=  right.m_variant;
+		m_variant.stored_type 	=  right.m_variant.stored_type;
 	}
 	return *this;
 }
 
 void ISXAnyType::SwapAnyTypes(AnyType& left, AnyType& right)
 {
-	AnyType temp	= left;
-	left			= right;
-	right			= temp;
+	AnyType temp	=  left;
+	left		=  right;
+	right		=  temp;
 }
